@@ -1,0 +1,95 @@
+/*** Buttons ***/
+// Header button
+.btn {
+	&,
+	&:link,
+	&:visited {
+		text-transform: uppercase;
+		text-decoration: none;
+		padding: 1rem 2rem;
+		display: inline-block;
+		margin-top: 5rem;
+		border: 1px solid $color-gradient-prim;
+		border-radius: 10rem;
+		transition: all .3s;
+		position: relative;
+		font-size: $default-font-size;
+
+		// Change for the btn elements
+		/*border: none;*/
+		cursor: pointer;
+	}
+
+	&:hover {
+		transform: translateY(-3px);
+		box-shadow: 0 10px 20px rgba($color-shadow, .3);
+
+		&::after {
+			transform: scaleX(1.2) scale(1.4);
+			opacity: 0;
+		}
+	}
+
+	&:active,
+	&:focus {
+		outline: none;
+		transform: translateY(-1px);
+		box-shadow: 0 .5rem 1rem rgba($color-shadow, .3);
+	}
+
+	&--flag {
+		background: linear-gradient(to right bottom, 
+			$color-gradient-prim, 
+			$color-gradient-sec);
+		color: $color-white;
+
+		&::after {
+			background: linear-gradient(to right bottom, 
+				rgba($color-gradient-prim, 0.5), 
+				rgba($color-gradient-sec, 0.5));
+		}
+	}
+
+	&::after {
+		content: "";
+		display: inline-block;
+		height: 100%;
+		width: 100%;
+		border-radius: 100px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		transition: all .4s;
+	}
+
+	&--header {
+		animation: moveIn .5s ease-out .5s;
+		animation-fill-mode: backwards;
+	}
+}
+
+.btn-text {
+	&:link,
+	&:visited {
+		font-size: $default-font-size;
+		color: $color-gradient-prim;
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid $color-gradient-prim;
+		padding: 3px;
+		transition: all .2s;
+	}
+
+	&:hover {
+		background-color: rgba($color-gradient-prim, .7);
+		color: $color-white;
+		box-shadow: 0 1rem 2rem rgba($color-shadow, .15);
+		transform: translateY(-3px);
+	}
+
+	&:active {
+		box-shadow: 0 .5rem 1rem rgba($color-shadow, .15);
+		transform: translateY(0);
+	}
+}

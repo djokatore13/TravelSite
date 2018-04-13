@@ -1,0 +1,185 @@
+/*** Card styling ***/
+.card {
+	// Functionality
+	perspective: 150rem;
+	-moz-perspective: 150rem;
+	positon: relative;
+	height: 52rem;
+
+	&__side {
+		background-color: orangered;
+		height: 52rem;
+		transition: all .8s ease;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		backface-visibility: hidden;
+		border-radius: 3px;
+		overflow: hidden;
+		box-shadow: 0 1.5rem 4rem rgba($color-shadow, .15);
+
+		&--front {
+			background-color: $color-white;
+		}
+
+		&--back {
+			background: linear-gradient(to right bottom, 
+				$color-gradient-prim, $color-gradient-sec);
+			transform: rotateX(180deg);
+		}
+	}
+
+	&:hover &__side--front {
+		transform: rotateX(-180deg);
+	}
+
+	&:hover &__side--back {
+		transform: rotateX(0);
+	}
+	
+	/*** Front side styling ***/
+	&__details {
+		padding: 3rem;
+
+		ul {
+			list-style: none;
+			width: 80%;
+			margin: 0 auto;
+
+			li {
+				text-align: center;
+				font-size: 1.5rem;
+				padding: 1rem;
+
+				&:not(:last-child) {
+					border-bottom: 1px solid $color-gray-2;
+				}
+			}
+		}
+	}
+
+	&__heading {
+		font-size: 2.8rem;
+		font-weight: 500;
+		text-transform: uppercase;
+		text-align: right;
+		color: $color-white;
+		position: absolute;
+		top: 30rem;
+		right: 2rem;
+		width: 50%;
+		z-index: 1;
+	}
+
+	&__heading-span {
+		padding: 1rem 1.5rem;
+		-webkit-box-decoration-break: clone;
+		box-decoration-break: clone;
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+				rgba($color-gradient-prim, .6), 
+				rgba($color-gradient-sec, .6));
+		}
+	}
+
+	&__img {
+		background-size: cover;
+		height: 23rem;
+		background-blend-mode: screen;
+		
+		-webkit-clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+		clip-path: polygon(0 0, 100% 15%, 100% 100%, 0 100%);
+		border-top-left-radius: 3px;
+		border-top-right-radius: 3px;
+
+		&--1 {
+			background-image: linear-gradient(to right bottom, 
+				$color-gradient-prim, $color-gradient-sec), 
+			url(../img/paris.jpeg);
+		}
+
+		&--2 {
+			background-image: linear-gradient(to right bottom, 
+				$color-gradient-prim, $color-gradient-sec), 
+			url(../img/venezia.jpeg);
+		}	
+
+		&--3 {
+			background-image: linear-gradient(to right bottom, 
+				$color-gradient-prim, $color-gradient-sec), 
+			url(../img/japan.jpeg);
+		}	
+	}
+
+	/*** Back side styling ***/
+	&__bcl {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+
+	&__price-box {
+		text-align: center;
+		color: $color-white;
+		margin-bottom: 8rem
+	}
+
+	&__price-head {
+		font-size: 2.6rem;
+		/*text-transform: uppercase;*/
+	}
+
+	&__price-value {
+		font-size: 6rem;
+		font-weight: 400;
+	}
+
+
+	// Media Query
+	//@include respond(tab-port) 
+	@media only screen and (max-width: 56.25em),
+		   only screen and (hover: none) {
+		height: auto;
+		border-radius: 3px;
+
+		&__side {
+			height: auto;
+			position: relative;
+			
+
+			&--back {
+				transform: rotateX(0);		
+			}
+		}
+
+		&:hover &__side--front {
+			transform: rotateX(0);
+		}
+
+		&__details {
+			padding: 1rem 3rem;
+		}
+
+		/*** Back side styling ***/
+		&__bcl {
+			position: relative;
+			top: 0;
+			left: 0;
+			transform: translate(0);
+			width: 100%;
+			padding: 7rem 4rem 4rem 4rem;
+		}
+
+		&__price-box {
+			margin-bottom: 3rem;
+		}
+
+		&__price-value {
+			font-size: 4rem;
+		}
+	}
+} 

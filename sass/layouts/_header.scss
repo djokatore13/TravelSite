@@ -1,0 +1,34 @@
+/*** Header ***/
+.header {
+	height: 95vh;
+	background-image: linear-gradient(to right bottom, 
+		rgba($color-gradient-prim, 0.5), 
+		rgba($color-gradient-sec, 0.5), 
+		rgba($color-gradient-third, 0.5)), 
+	url(../img/travel-bus.jpeg);
+	background-size: cover;
+	background-position: center;
+	position: relative;
+	
+	-webkit-clip-path: polygon(0 0, 100% 0, 100% 85vh, 50% 100%, 0 85vh);
+	clip-path: polygon(0 0, 100% 0, 100% 85vh, 50% 100%, 0 85vh);
+	
+	/*** Logo ***/
+	&__logo-box {
+		position: absolute;
+		top: 4rem;
+		left: 8rem;
+	}
+
+	&__logo {
+		height: 5rem;
+	}
+
+	&__box-center {
+		position: absolute;
+		top: 30%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+}
